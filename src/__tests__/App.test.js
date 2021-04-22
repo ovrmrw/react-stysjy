@@ -1,8 +1,21 @@
-import assert from "assert";
+import React from "react";
+import { render, fireEvent, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import App from "../App";
 
-const a = [1];
-const b = [2];
-assert.equal(a, b);
-assert.notDeepEqual(a, b);
+test("App", () => {
+  render(<App />);
 
-assert(1 === 0);
+  expect(screen.getByRole("heading")).toHaveTextContent(/^0$/);
+
+  fireEvent.click(screen.getByText("Increment"));
+  expect(screen.getByRole("heading")).toHaveTextContent(/^1$/);
+
+  for (let i = 0; i < 9; i++) {
+    fireEvent.click(screen.getByText("Increment"));
+  }
+  expect(screen.getByRole("heading")).toHaveTextContent(/^10$/);
+
+  fireEvent.click(screen.getByText("Reset"));
+  expect(screen.getByRole("heading")).toHaveTextContent(/^0$/);
+});
