@@ -18,10 +18,6 @@ export default function App(props) {
     setState({ ...initialState });
   };
 
-  useEffect(() => {
-    console.log(state.counter);
-  });
-
   return (
     <div>
       <h1>{state.counter}</h1>
