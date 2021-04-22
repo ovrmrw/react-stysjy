@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function App() {
+export default function App(props) {
   const initialState = {
     counter: 0
   };
