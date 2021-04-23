@@ -17,5 +17,5 @@ test("App", () => {
   expect(screen.getByRole("heading")).toHaveTextContent(/^10$/);
 
   fireEvent.click(screen.getByText("Reset"));
-  expect(screen.getByRole("heading")).toHaveTextContent(/^0$/);
+  expect(screen.getByRole("heading")).toHaveTextContent(/^$/);
 });
